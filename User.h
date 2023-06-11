@@ -117,10 +117,15 @@ void User::calculateBM()
 {
     if (Gender == 'M')
     {
-        std::cout << "The recommended amount of calories for you to consume are: " << (66 + (13.7*Weight) + (5*Height) - (6.8*Age))*ActivityFactor << std::endl;
+        std::cout << "The recommended amount of calories for you to consume are: " << (66 + (13.7*Weight) + (5*Height) - (6.8*Age))*ActivityFactor << "kcal" << std::endl;
     }
     else if (Gender == 'F')
     {
-        std::cout << "The recommended amount of calories for you to consume are: " << (655 + (9.6*Weight) + (1.8*Height) - (4.7*Age))*ActivityFactor << std::endl;
+        std::cout << "The recommended amount of calories for you to consume are: " << (655 + (9.6*Weight) + (1.8*Height) - (4.7*Age))*ActivityFactor << "kcal" << std::endl;
+    }
+    else
+    {
+        std::cout << "Invalid character, please choose from the available ones!" << std::endl;
+        return;
     }
 }
