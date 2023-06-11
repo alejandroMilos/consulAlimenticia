@@ -12,10 +12,11 @@ class User
     double Weight;
     double Height;
     double ActivityFactor;
+    char Gender;
     public:
         // constructores
         User(); // por omision
-        User(const std::string name, const int age, const double weight, const double height, const double actfactor) : Name(name), Age(age), Weight(weight), Height(height), ActivityFactor(actfactor) {}; // por definicion
+        User(const std::string name, const int age, const double weight, const double height, const double actfactor, const char gender) : Name(name), Age(age), Weight(weight), Height(height), ActivityFactor(actfactor), Gender(gender) {}; // por definicion
 
         // destructor
         ~User() {}
@@ -26,6 +27,7 @@ class User
         void setWeight(double);
         void setHeight(double);
         void setActivityFactor(double);
+        void setGender(char);
 
         // getters
         std::string getName();
@@ -33,6 +35,10 @@ class User
         double getWeight();
         double getHeight();
         double getActivityFactor();
+        char getGender();
+
+        // metodo para calcular el metabolismo basal ()
+        void calculateBM();
 
         // metodo de impresion
         void printUser();
@@ -45,6 +51,7 @@ User::User()
     Weight = 0.0;
     Height = 0.0;
     ActivityFactor = 0.0;
+    Gender = 'M';
 }
 
 void User::setName(std::string _name)
@@ -67,6 +74,10 @@ void User::setActivityFactor(double _activityfactor)
 {
     ActivityFactor = _activityfactor;
 }
+void User::setGender(char _gender)
+{
+    Gender = _gender;
+}
 
 std::string User::getName()
 {
@@ -88,12 +99,28 @@ double User::getActivityFactor()
 {
     return ActivityFactor;
 }
+char User::getGender()
+{
+    return Gender;
+}
 
 void User::printUser()
 {
-    std::cout << "Username: " << Name << "\nAge: " << Age << "\nWeight: " << Weight << "kg" << "\nHeight: " << Height << "m" 
+    std::cout << "Username: " << Name << "\nAge: " << Age << "\nWeight: " << Weight << "kg" << "\nHeight (in cm): " << Height << "cm" 
     << "\nThe Activity Factor is based on the following specifications:" << "\n-> 1.2 for sedentary people"
     << "\n-> 1.375 for people who excercise 1 to 3 days a week" << "\n-> 1.55 for people who excercise 3 to 5 days a week"
     << "\n-> 1.725 who excercise 6 to 7 days a week" << "\n-> 1.9 for people who excercise more than 4 hours a day (professional athletes)"
-    << "\nActivity Factor: " << ActivityFactor << std::endl;
+    << "\nActivity Factor: " << ActivityFactor << "\nGender being M <Male> or F <Female>: " << Gender << std::endl;
+}
+
+void User::calculateBM()
+{
+    if (Gender == 'M')
+    {
+        std::cout << "The recommended amount of calories for you to consume are: " << (66 + (13.7*Weight) + (5*Height) - (6.8*Age))*ActivityFactor << std::endl;
+    }
+    else if (Gender == 'F')
+    {
+        std::cout << "The recommended amount of calories for you to consume are: " << (655 + (9.6*Weight) + (1.8*Height) - (4.7*Age))*ActivityFactor << std::endl;
+    }
 }
