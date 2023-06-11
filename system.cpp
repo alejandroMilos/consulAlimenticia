@@ -4,9 +4,30 @@
 
 #include <iostream>
 #include "FoodItem.h"
+#include "User.h"
 
 int main()
 {
+    User user1;
+    user1.setName("Marco");
+    user1.setAge(20);
+    user1.setWeight(75.4);
+    user1.setHeight(1.77);
+    user1.setActivityFactor(1.725);
+    user1.printUser();
+
+    std::cout << "\n" << std::endl;
+
+    User user2;
+    user2.setName("Jezabel");
+    user2.setAge(19);
+    user2.setWeight(49.54);
+    user2.setHeight(1.55);
+    user2.setActivityFactor(1.725);
+    user2.printUser();
+
+    std::cout << "\n" << std::endl;
+
     FoodItem item1;
     item1.setFoodName("Manzana");
     item1.setCalories(52.0);
