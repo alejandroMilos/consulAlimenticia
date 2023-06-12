@@ -3,7 +3,7 @@
 // Situacion Problema: POO - Consulta Alimenticia 
 
 #include <iostream>
-#include "FoodItem.h"
+#include "FoodGroup.h"
 #include "User.h"
 
 int main()
@@ -32,13 +32,28 @@ int main()
 
     std::cout << "\n" << std::endl;
 
-    FoodItem item1;
-    item1.setFoodName("Manzana");
-    item1.setCalories(52.0);
-    item1.printItem();
+    FoodGroup foodGroup;
+    while (true)
+    {
+        std::cout << "Do you wish to add food to an existing group or finalize the selection?" << std::endl;
+        std::cout << "1. Add food to an existing group" << std::endl;
+        std::cout << "2. Finalize selection" << std::endl;
+        std::cout << "Enter an option: ";
+        int choice;
+        std::cin >> choice;
+        std::cout << std::endl;
 
-    FoodItem item2;
-    item2.setFoodName("Platano");
-    item2.setCalories(96.8);
-    item2.printItem();
+        if (choice == 2)
+        {
+            break;
+        } else if (choice != 1)
+        {
+            std::cout << "Invalid option! Please choose from the available ones." << std::endl;
+            continue;
+        }
+
+        foodGroup.setGroup(choice);
+    }
+
+    return 0;
 }
