@@ -5,11 +5,14 @@
 #include <iostream>
 #include <string>
 #include <vector>
+#include <map>
 #include "FoodItem.h"
 
 class FoodGroup : public FoodItem // la clase FoodGroup hereda con ambito publico la clase FoodItem
 {
     std::string Group;
+    std::map<std::string, std::vector<FoodItem> > foodGroups; // creamos un mapa para poder almacenar los alimentos acorde a su grupo
+
     public:
         // constructores
         FoodGroup() {} // por omision
@@ -22,7 +25,7 @@ class FoodGroup : public FoodItem // la clase FoodGroup hereda con ambito public
         void setGroup(int);
 
         // getter
-        int getGroup();
+        std::string getGroup();
 
         // metodo de impresion
         void printGroup();
@@ -37,10 +40,6 @@ void FoodGroup::setGroup(int group)
     std::cout << "Group 4: Cereals" << std::endl;
     std::cout << "Group 5: Leguminose" << std::endl;
     std::cout << "Group 0: Finish groups" << std::endl;
-
-    std::vector<FoodItem> foodItems;
-
-    int choice;
 
     while(true)
     {
@@ -58,22 +57,23 @@ void FoodGroup::setGroup(int group)
             std::cout << "Invalid option! Please choose from the valid group options." << std::endl;
             continue;
         }
-
+        
+        std::string groupName;
         if (choice == 1)
         {
-            Group = "Fruits";
+            groupName = "Fruits";
         } else if (choice == 2)
         {
-            Group = "Vegetables";
+            groupName = "Vegetables";
         } else if (choice == 3)
         {
-            Group = "Animal Originated";
+            groupName = "Animal Originated";
         } else if (choice == 4)
         {
-            Group = "Cereals";
+            groupName = "Cereals";
         } else if (choice == 5)
         {
-            Group = "Leguminose";
+            groupName = "Leguminose";
         }
 
         std::string name;
@@ -87,17 +87,31 @@ void FoodGroup::setGroup(int group)
         std::cout << "Type the calories of the item: ";
         std::cin >> calories;
 
-        foodItems.push_back(FoodItem(name, calories));
+        foodGroups[groupName].push_back(FoodItem(name, calories)); // mandamos a llamar a foodGroups para almacenar los alimentos por grupo
     }
 
-    // Imprimimos los alimentos del grupo seleccionado
+    // Imprimimos los alimentos de los grupos seleccionados
     std::cout << std::endl;
-    std::cout << "Food items of group " << Group << ":" << std::endl;
-    for (auto& foodItem : foodItems) // recorremos cada elemento del vector y llamamos al metodo "printItem()" para imprimir la info. de cada alimento
+    std::cout << "Food items of groups: " << std::endl;
+    for (auto& group : foodGroups) // recorremos cada elemento del mapa "foodGroups" e imprimimos cada grupo junto con sus alimentos correspondientes
     {
-        foodItem.printItem();
+        std::cout << "Group: " << group.first << std::endl;
+        for (auto& foodItem : group.second)
+        {
+            foodItem.printItem();
+        }
+        std::cout << std::endl;
     }
-    std::cout << std::endl;
 
     std::cin.ignore();
+}
+
+std::string FoodGroup::getGroup()
+{
+    return Group;
+}
+
+void FoodGroup::printGroup()
+{
+    std::cout << "Current group: " << Group << std::endl;
 }
