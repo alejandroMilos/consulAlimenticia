@@ -7,8 +7,9 @@
 
 class FoodItem
 { 
-    std::string FoodName;
-    double Calories;
+    protected:
+        std::string FoodName;
+        double Calories;
     public:
         // constructores
         FoodItem(); // por omision
@@ -54,5 +55,5 @@ double FoodItem::getCalories()
 
 void FoodItem::printItem()
 {
-    std::cout << "Food Name: " << FoodName << " - " << "Calories: " << Calories << std::endl;
+    std::cout << "Food Item: " << FoodName << " - " << "Calories: " << Calories << "kcal" << std::endl;
 }
