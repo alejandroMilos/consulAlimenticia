@@ -6,23 +6,21 @@
 #include <string>
 #include <list>
 #include <ctime> // se usa para trabajar con el tiempo y la fecha 
-// #include "FoodGroup.h"
+#include "FoodCatalog.h"
 
 class Menu
 {
+    int quantity;
     double totalCal;
-    std::time_t creationTime;
+    std::time_t creationTime; // atributo para poder accesar al tiempo local en forma de fecha y hora.
     public:
         Menu();// por omision
-        Menu(const double totalcal, const std::time_t creationtime) : totalCal(totalcal), creationTime(creationtime) {}
+        Menu(double totalCal, std::time_t creationTime, int quantity);
 
         // destructor
         ~Menu() {}
-
-        // setters
-
+        
         // getters
-        double getTotalCal();
         std::time_t getCreationTime();
 
         // metodo para calcular el total de las calorias contenidas en el menu
@@ -34,8 +32,14 @@ class Menu
 
 Menu::Menu()
 {
-    totalCal = 0;
+    quantity = 0;
+    totalCal = 0.0;
     creationTime = time(0);
+}
+
+void Menu::calculateTotalCal()
+{
+    
 }
 
 std::time_t Menu::getCreationTime()
