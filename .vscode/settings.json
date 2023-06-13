@@ -102,6 +102,7 @@
     "ctime": "cpp",
     "list": "cpp",
     "map": "cpp",
-    "optional": "cpp"
+    "optional": "cpp",
+    "fstream": "cpp"
   }
 }
