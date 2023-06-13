@@ -4,8 +4,8 @@
 
 #include <iostream>
 #include <vector>
+#include <fstream>
 #include "FoodGroup.h"
-
 class FoodCatalog : public FoodGroup
 {
     std::vector<std::string> groupList; // hacemos la lista de grupos disponibles
@@ -18,17 +18,18 @@ class FoodCatalog : public FoodGroup
         ~FoodCatalog() {}
 
         // metodos publicos
-        void addGroup(std::string& groupName); // agregamos un grupo a la lista de grupos disponibles en el catalogo
-        void deleteGroup(std::string& groupName); // removemos un grupo de la lista de grupos disponibles en el catalogo
+        // void addGroup(std::string& groupName); // agregamos un grupo a la lista de grupos disponibles en el catalogo
+        void deleteGroup(std::string& groupName); // removemos un grupo de la lista de grupos disponibles en el catalog
         
         // metodo de impresion
         void printGroupList();
+        void printGroupListFromFile(const std::string& fileName);
 };
 
-void FoodCatalog::addGroup(std::string& groupName)
-{
-    groupList.push_back(groupName);
-}
+// void FoodCatalog::addGroup(std::string& groupName)
+// {
+//     groupList.push_back(groupName);
+// }
 
 void FoodCatalog::deleteGroup(std::string& groupName)
 {
@@ -60,3 +61,27 @@ void FoodCatalog::printGroupList()
         }
     }
 }
+
+void FoodCatalog::printGroupListFromFile(const std::string& fileName)
+{
+    std::ifstream inputFile(fileName);
+    if (inputFile.is_open())
+    {
+        std::string line;
+        std::cout << "---- Loading Food Catalog... ----" << std::endl;
+        std::cout << "Groups Availabe: " << std::endl;
+        while (std::getline(inputFile, line))
+        {
+            if (line.find("- Group: ") != std::string::npos)
+            {
+                std::cout << line << std::endl;
+            }
+        }
+        inputFile.close();
+    }
+    else
+    {
+        std::cout << "Unable to open file: " << fileName << std::endl;
+    }
+}
+
