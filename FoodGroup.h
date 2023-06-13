@@ -11,7 +11,8 @@
 class FoodGroup : public FoodItem // la clase FoodGroup hereda con ambito publico la clase FoodItem
 {
     std::string Group;
-    std::map<std::string, std::vector<FoodItem> > foodGroups; // creamos un mapa para poder almacenar los alimentos acorde a su grupo
+    protected:
+        std::map<std::string, std::vector<FoodItem> > foodGroups; // creamos un mapa para poder almacenar los alimentos acorde a su grupo
 
     public:
         // constructores
