@@ -128,11 +128,11 @@ void User::calculateBM()
     // "if" para elaborar la evaluación de las calorías necesarias para hombres y para mujeres (debido a que los valores son distintos para hombres que para mujeres)
     if (Gender == 'M')
     {
-        std::cout << "The recommended amount of calories for you to consume are: " << (66 + (13.7*Weight) + (5*Height) - (6.8*Age))*ActivityFactor << "kcal" << std::endl;
+        std::cout << "The recommended amount of calories for you to consume are: " << (66 + (13.7*Weight) + (5*Height) - (6.8*Age))*ActivityFactor << "kcal/day" << std::endl;
     }
     else if (Gender == 'F')
     {
-        std::cout << "The recommended amount of calories for you to consume are: " << (655 + (9.6*Weight) + (1.8*Height) - (4.7*Age))*ActivityFactor << "kcal" << std::endl;
+        std::cout << "The recommended amount of calories for you to consume are: " << (655 + (9.6*Weight) + (1.8*Height) - (4.7*Age))*ActivityFactor << "kcal/day" << std::endl;
     }
     // excepción para confirmar que el usuario haya ingresado un valor válido, de lo contrario, mostrar el mensaje de error para que el usuario corriga sus datos ingresados erróneamente
     try
