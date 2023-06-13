@@ -101,6 +101,7 @@
     "cstdarg": "cpp",
     "ctime": "cpp",
     "list": "cpp",
-    "map": "cpp"
+    "map": "cpp",
+    "optional": "cpp"
   }
 }
