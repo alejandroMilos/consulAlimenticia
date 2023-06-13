@@ -48,7 +48,7 @@ void FoodCatalog::printGroupList()
     std::cout << "Groups available:" << std::endl;
     for (auto& groupName : groupList) // recorremos cada elemento del vector "groupList" e imprimimos cada grupo disponible por nombre y elementos
     {
-        std::cout << groupName << std::endl;
+        std::cout << "- "<< groupName << std::endl;
         for (auto& group : foodGroups) // recorremos cada elemento del mapa "foodGroups" e imprimimos cada grupo junto con sus alimentos correspondientes
         {
             std::cout << "Group: " << group.first << std::endl;
