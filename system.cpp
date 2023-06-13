@@ -8,29 +8,11 @@
 
 int main()
 {
-    User user1;
-    user1.setName("Marco");
-    user1.setAge(20);
-    user1.setWeight(75.4);
-    user1.setHeight(177);
-    user1.setActivityFactor(1.725);
-    user1.setGender('M');
-    user1.printUser();
-    user1.calculateBM();
-
-    std::cout << "\n" << std::endl;
-
-    User user2;
-    user2.setName("Jezabel");
-    user2.setAge(19);
-    user2.setWeight(49.54);
-    user2.setHeight(155);
-    user2.setActivityFactor(1.725);
-    user2.setGender('F');
-    user2.printUser();
-    user2.calculateBM();
-
-    std::cout << "\n" << std::endl;
+    User user;
+    user.printUser();
+    user.calculateBM();
+    
+    std::cout << std::endl;
 
     FoodGroup foodGroup;
     while (true)
