@@ -106,15 +106,26 @@ char User::getGender()
 
 void User::printUser()
 {
-    std::cout << "Username: " << Name << "\nAge: " << Age << "\nWeight: " << Weight << "kg" << "\nHeight (in cm): " << Height << "cm" 
-    << "\nThe Activity Factor is based on the following specifications:" << "\n-> 1.2 for sedentary people"
-    << "\n-> 1.375 for people who excercise 1 to 3 days a week" << "\n-> 1.55 for people who excercise 3 to 5 days a week"
-    << "\n-> 1.725 who excercise 6 to 7 days a week" << "\n-> 1.9 for people who excercise more than 4 hours a day (professional athletes)"
-    << "\nActivity Factor: " << ActivityFactor << "\nGender being M <Male> or F <Female>: " << Gender << std::endl;
+    std::cout << "Please enter your name: ";
+    std::cin >> Name;
+    std::cout << "Please enter your age: ";
+    std::cin >> Age;
+    std::cout << "Please enter your weight (in kg): ";
+    std::cin >> Weight;
+    std::cout << "Please enter your height (in cm): ";
+    std::cin >> Height;
+    std::cout << "The Activity Factor is based on the following specifications: " << std::endl;
+    std::cout << "-> 1.2 for sedentary people" << "\n-> 1.375 for people who excercise 1 to 3 days a week" << "\n-> 1.55 for people who excercise 3 to 5 days a week"
+    << "\n-> 1.725 for people who excercise 6 to 7 days a week" << "\n-> 1.9 for people who excercise more than 4 hours a day (professional athletes)" << std::endl;
+    std::cout << "Please enter your Activity Factor: ";
+    std::cin >> ActivityFactor;
+    std::cout << "Please enter your gender M being <Male> or F being <Female>: ";
+    std::cin >> Gender;
 }
 
 void User::calculateBM()
 {
+    // "if" para elaborar la evaluación de las calorías necesarias para hombres y para mujeres (debido a que los valores son distintos para hombres que para mujeres)
     if (Gender == 'M')
     {
         std::cout << "The recommended amount of calories for you to consume are: " << (66 + (13.7*Weight) + (5*Height) - (6.8*Age))*ActivityFactor << "kcal" << std::endl;
@@ -123,9 +134,17 @@ void User::calculateBM()
     {
         std::cout << "The recommended amount of calories for you to consume are: " << (655 + (9.6*Weight) + (1.8*Height) - (4.7*Age))*ActivityFactor << "kcal" << std::endl;
     }
-    else
+    // excepción para confirmar que el usuario haya ingresado un valor válido, de lo contrario, mostrar el mensaje de error para que el usuario corriga sus datos ingresados erróneamente
+    try
     {
-        std::cout << "Invalid character, please choose from the available ones!" << std::endl;
+        if (Gender != 'M' && Gender != 'F')
+        {
+            std::cout << "Invalid character, please choose from the avaliable ones!" << std::endl;
+        }
+    }
+    catch(const std::exception& e)
+    {
+        std::cerr << e.what() << '\n';
         return;
     }
 }
