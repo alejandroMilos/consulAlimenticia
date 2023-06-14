@@ -119,18 +119,18 @@ void User::printUser()
     << "\n-> 1.725 for people who excercise 6 to 7 days a week" << "\n-> 1.9 for people who excercise more than 4 hours a day (professional athletes)" << std::endl;
     std::cout << "Please enter your Activity Factor: ";
     std::cin >> ActivityFactor;
-    std::cout << "Please enter your gender M being <Male> or F being <Female>: ";
+    std::cout << "Please enter your gender M being <Male> or F being <Female> (please use capital letters): ";
     std::cin >> Gender;
 }
 
 void User::calculateBM()
 {
     // "if" para elaborar la evaluación de las calorías necesarias para hombres y para mujeres (debido a que los valores son distintos para hombres que para mujeres)
-    if (Gender == 'M')
+    if (Gender == 'M' || Gender == 'm')
     {
         std::cout << "The recommended amount of calories for you to consume are: " << (66 + (13.7*Weight) + (5*Height) - (6.8*Age))*ActivityFactor << "kcal/day" << std::endl;
     }
-    else if (Gender == 'F')
+    else if (Gender == 'F' || Gender == 'f')
     {
         std::cout << "The recommended amount of calories for you to consume are: " << (655 + (9.6*Weight) + (1.8*Height) - (4.7*Age))*ActivityFactor << "kcal/day" << std::endl;
     }
