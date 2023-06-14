@@ -81,6 +81,24 @@ void Menu::printMenu()
         else if (goption == 'N' || goption == 'n')
         {
             // en caso de que el usuario no quiera verlo, se le mostrará directamente la cantidad de calorías totales en el catálogo
+            std::ifstream inputFile("Foodlist.txt");
+            if (inputFile.is_open())
+            {
+                std::string line;
+                while(std::getline(inputFile, line))
+                {
+                    if (line.find("Calories: ") != std::string::npos)
+                    {
+                        // extraemos el valor que tenemos establecidos en cada alimento guardado en cada grupo
+                        std::string caloriesStr = line.substr(line.find("Calories: ") + 10); // 10 es la longitud de "Calories"
+                        double calories = std::stod(caloriesStr);
+
+                        // sumamos la cantidad total de calorias
+                        totalCal += calories;
+                    }
+                }
+                inputFile.close();
+            }
             std::cout << "Total Calories: " << totalCal << "kcal" << std::endl;
             break;
         }
