@@ -18,49 +18,11 @@ class FoodCatalog : public FoodGroup
         ~FoodCatalog() {}
 
         // metodos publicos
-        // void addGroup(std::string& groupName); // agregamos un grupo a la lista de grupos disponibles en el catalogo
-        void deleteGroup(std::string& groupName); // removemos un grupo de la lista de grupos disponibles en el catalog
+        void viewFoodGroupsContentFromList(const std::string& fileName);
         
         // metodo de impresion
-        void printGroupList();
         void printGroupListFromFile(const std::string& fileName);
 };
-
-// void FoodCatalog::addGroup(std::string& groupName)
-// {
-//     groupList.push_back(groupName);
-// }
-
-void FoodCatalog::deleteGroup(std::string& groupName)
-{
-    // buscamos que el grupo este en la lista y lo eliminamos
-    for (auto it = groupList.begin(); it != groupList.end(); it++) // "it" es como estaremos estableciendo a cada grupo dentro de la lista de grupos disponibles
-    {
-        if (*it == groupName)
-        {
-            groupList.erase(it);
-            break;
-        }
-    }
-}
-
-void FoodCatalog::printGroupList()
-{
-    std::cout << "Groups available:" << std::endl;
-    for (auto& groupName : groupList) // recorremos cada elemento del vector "groupList" e imprimimos cada grupo disponible por nombre y elementos
-    {
-        std::cout << "- "<< groupName << std::endl;
-        for (auto& group : foodGroups) // recorremos cada elemento del mapa "foodGroups" e imprimimos cada grupo junto con sus alimentos correspondientes
-        {
-            std::cout << "Group: " << group.first << std::endl;
-            for (auto& foodItem : group.second)
-            {
-                foodItem.printItem();
-            }
-        std::cout << std::endl;
-        }
-    }
-}
 
 void FoodCatalog::printGroupListFromFile(const std::string& fileName)
 {
@@ -69,7 +31,7 @@ void FoodCatalog::printGroupListFromFile(const std::string& fileName)
     {
         std::string line;
         std::cout << "---- Loading Food Catalog... ----" << std::endl;
-        std::cout << "Groups Availabe: " << std::endl;
+        std::cout << "Groups Available: " << std::endl;
         while (std::getline(inputFile, line))
         {
             if (line.find("- Group: ") != std::string::npos)
@@ -85,3 +47,28 @@ void FoodCatalog::printGroupListFromFile(const std::string& fileName)
     }
 }
 
+void FoodCatalog::viewFoodGroupsContentFromList(const std::string& fileName)
+{
+    std::ifstream inputFile(fileName);
+    if (inputFile.is_open())
+    {
+        std::string line;
+        while (std::getline(inputFile, line))
+        {
+            if (line.find("- Group: ") != std::string::npos)
+            {
+                std::cout << line << std::endl;
+                    while (std::getline(inputFile, line) && line.find("Food Item: ") != std::string::npos)
+                    {
+                        std::cout << line << std::endl;
+                    }
+                    std::cout << std::endl;
+            }
+        }
+        inputFile.close();
+    }
+    else
+    {
+        std::cout << "Unable to open file: " << fileName << std::endl;
+    }
+}
