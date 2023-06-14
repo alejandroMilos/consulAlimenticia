@@ -11,19 +11,20 @@
 
 class Menu
 {
-    FoodCatalog foodCatalog;
-    User user;
+    FoodCatalog foodCatalog; // hacemos uso de composicion para poder utilizar metodos de la clase "FoodCatalog"
+    User user; // hacemos uso de composicion para poder utilizar metodos de la clase "User"
     int quantity;
-    double totalCal;
     std::time_t creationTime; // atributo para poder accesar al tiempo local en forma de fecha y hora.
+    double totalCal;
     public:
+
+        // constructor
         Menu();// por omision
-        Menu(double totalCal, std::time_t creationTime, int quantity);
 
         // destructor
         ~Menu() {}
         
-        // getters
+        // getter
         std::time_t getCreationTime();
 
         // metodo de impresion
