@@ -1,19 +1,19 @@
 - Group: Fruits
-Food Item: Apple - Calories: 52.0kcal
-Food Item: Banana - Calories: 96.0kcal
+Food Item: Apple - Calories: 52.0kcal - Portion: 100gr
+Food Item: Banana - Calories: 96.0kcal - Portion: 100gr
 
 - Group: Vegetables
-Food Item: Carrot - Calories: 41.0kcal
-Food Item: Broccoli - Calories: 55.0kcal
+Food Item: Carrot - Calories: 41.0kcal - Portion: 100gr
+Food Item: Broccoli - Calories: 55.0kcal - Portion: 100gr
 
 - Group: Animal Originated
-Food Item: Chicken - Calories: 239.0kcal
-Food Item: Beef - Calories: 250.0kcal
+Food Item: Chicken - Calories: 239.0kcal - Portion: 100gr
+Food Item: Beef - Calories: 250.0kcal - Portion: 100gr
 
 - Group: Cereals
-Food Item: Rice - Calories: 130.0kcal
-Food Item: Wheat - Calories: 327.0kcal
+Food Item: Rice - Calories: 130.0kcal - Portion: 100gr
+Food Item: Wheat - Calories: 327.0kcal - Portion: 100gr
 
 - Group: Leguminose
-Food Item: Lentils - Calories: 353.0kcal
-Food Item: Beans - Calories: 347.0kcal
+Food Item: Lentils - Calories: 353.0kcal - Portion: 100gr
+Food Item: Beans - Calories: 347.0kcal - Portion: 100gr
