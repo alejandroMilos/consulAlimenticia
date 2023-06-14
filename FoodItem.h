@@ -27,7 +27,7 @@ class FoodItem
         double getCalories();
 
         // metodo de impresion
-        virtual void printItem();
+        void printItem();
 };
 
 FoodItem::FoodItem()
