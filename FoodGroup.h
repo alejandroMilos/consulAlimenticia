@@ -20,7 +20,7 @@ class FoodGroup : public FoodItem // la clase FoodGroup hereda con ambito public
         FoodGroup(std::string name, double calories) : FoodItem(name, calories) {}
         
         // destructor
-        ~FoodGroup() {}
+        virtual ~FoodGroup() {}
 
         // setter
         void setGroup(int);
