@@ -22,6 +22,17 @@ class FoodCatalog : public FoodGroup
         
         // metodo de impresion
         void printGroupListFromFile(const std::string& fileName);
+
+        // operador de sobrecarga 
+        friend std::ostream& operator<<(std::ostream& os, const FoodCatalog& foodCatalog)
+        {
+            os << "Groups Available: " << std::endl;
+            for (const std::string& group : foodCatalog.groupList)
+            {
+                os << "- Group: " << group << std::endl;
+            }
+            return os;
+        }
 };
 
 void FoodCatalog::printGroupListFromFile(const std::string& fileName)
