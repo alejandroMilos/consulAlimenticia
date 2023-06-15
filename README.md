@@ -1,8 +1,8 @@
-## Sistema de Generación de Menús Personalizados
+# Sistema de Generación de Menús Personalizados
 
 Este proyecto implementa un sistema de generación de menús personalizados en función de los datos del usuario. El sistema utiliza varias clases para gestionar los alimentos, los grupos de alimentos, el catálogo de alimentos y el usuario.
 
-# Clases
+## Clases
 
 * "system.cpp": Contiene la función principal "main()", que inicializa el sistema llamando al método "run()" de la clase "System".
 * "FoodItem.h": Define la clase "FoodItem" para representar un elemento de comida con atributos como el nombre y las calorías. Proporciona métodos para establecer y obtener los valores de los atributos, así como un método "printItem()" para imprimir la información del alimento.
@@ -15,14 +15,14 @@ En resumen, el sistema utiliza estas clases para crear un programa que genere me
 
 Además, el sistema utiliza un catálogo de grupos de alimentos y alimentos individuales para proporcionar opciones de alimentos en el menú. Los alimentos se agrupan en diferentes categorías, lo que permite una selección más variada en el menú generado.
 
-# Tecnología utilizada
+## Tecnología utilizada
 
 * git y github
 * 100% C++
 * Uso de un operador:"operator<<" (intencionado a hacer sobrecarga ddel operador de salida de streams con la finalidad de facilitar la impresión del texto).
 * Uso de una excepción: el "try/catch" en la clase "User" nos permite crear un posible error e identificarlo en caso de que llegue a suceder si no se cumple con los parámetros indicados.
 
-# Importante
+## Importante
 
 * Será necesario conectar nuestro GitHub con el IDE que estamos utilizando (en caso de estar haciendo uso alguno).
 * Es necesario asegurarnos de que todas las clases necesarias para el programa ya estén creadas (para evitarnos erorres innecesarios).
