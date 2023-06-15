@@ -24,15 +24,7 @@ class FoodCatalog : public FoodGroup
         void printGroupListFromFile(const std::string& fileName);
 
         // operador de sobrecarga 
-        friend std::ostream& operator<<(std::ostream& os, const FoodCatalog& foodCatalog)
-        {
-            os << "Groups Available: " << std::endl;
-            for (const std::string& group : foodCatalog.groupList)
-            {
-                os << "- Group: " << group << std::endl;
-            }
-            return os;
-        }
+        friend std::ostream& operator<<(std::ostream& os, const FoodCatalog& foodCatalog);
 };
 
 void FoodCatalog::printGroupListFromFile(const std::string& fileName)
@@ -82,4 +74,14 @@ void FoodCatalog::viewFoodGroupsContentFromList(const std::string& fileName)
     {
         std::cout << "Unable to open file: " << fileName << std::endl;
     }
+}
+
+std::ostream& operator<<(std::ostream& os, const FoodCatalog& foodCatalog)
+{
+    os << "Groups Available: " << std::endl;
+    for (const std::string& group : foodCatalog.groupList)
+    {
+        os << "- Group: " << group << std::endl;
+    }
+    return os;
 }
